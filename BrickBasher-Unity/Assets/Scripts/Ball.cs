@@ -11,11 +11,19 @@
 /*** Using Namespaces ***/
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
+using UnityEngine;;
 
 public class Ball : MonoBehaviour
 {
+    public float speed; // speed constant
+    public int score; // score
+    public int ballLives; // number of balls
+    Paddle refPad; // GameObject paddle reference
+    public bool isInPlay; // true or false
+    Rigidbody rb;
+    AudioSource audioSource;
+    Vector3 initalForce;
+
     [Header("General Settings")]
 
 
@@ -29,12 +37,12 @@ public class Ball : MonoBehaviour
     //Awake is called when the game loads (before Start).  Awake only once during the lifetime of the script instance.
     void Awake()
     {
-
+        
     }//end Awake()
 
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         SetStartingPos(); //set the starting position
 
@@ -44,13 +52,30 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // checks the text property of the ballTxt and scoreTxt to update with values
+
+        // check if ball not in play
+        if (isInPlay == false)
+        {
+            
+        }
+
+        // check if Space key is pressed and if ball not is in play
+        if (isInPlay == false && )
+        {
+            isInPlay = true;
+            
+        }
     }//end Update()
 
 
     private void LateUpdate()
     {
-
+        if (isInPlay == true)
+        {
+            // Like this but the speed * velocity.normalized is more complicated
+            Vector3 velocity = speed * velocity.normalized;
+        }
 
     }//end LateUpdate()
 
@@ -68,8 +93,20 @@ public class Ball : MonoBehaviour
     }//end SetStartingPos()
 
 
+    void move()
+    {
+        // AddForce to Rigidbody using the initalForce value
+        Vector3 AddForce = Rigidbody(initalForce);
+    }
 
+    void OnCollisionEnter()
+    {
 
+    }
 
+    void OnTriggerEnter()
+    {
+
+    }
 
 }
