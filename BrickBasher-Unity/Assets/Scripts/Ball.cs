@@ -11,7 +11,7 @@
 /*** Using Namespaces ***/
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;;
+using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
@@ -24,10 +24,10 @@ public class Ball : MonoBehaviour
     AudioSource audioSource;
     Vector3 initalForce;
 
-    [Header("General Settings")]
+ //   [Header("General Settings")]
 
 
-    [Header("Ball Settings")]
+ //   [Header("Ball Settings")]
    
 
 
@@ -61,7 +61,7 @@ public class Ball : MonoBehaviour
         }
 
         // check if Space key is pressed and if ball not is in play
-        if (isInPlay == false && )
+        if (isInPlay == false)
         {
             isInPlay = true;
             
@@ -74,7 +74,7 @@ public class Ball : MonoBehaviour
         if (isInPlay == true)
         {
             // Like this but the speed * velocity.normalized is more complicated
-            Vector3 velocity = speed * velocity.normalized;
+          //  Vector3 velocity = speed * velocity.normalized;
         }
 
     }//end LateUpdate()
@@ -86,8 +86,8 @@ public class Ball : MonoBehaviour
         rb.velocity = Vector3.zero;//set velocity to keep ball stationary
 
         Vector3 pos = new Vector3();
-        pos.x = paddle.transform.position.x; //x position of paddel
-        pos.y = paddle.transform.position.y + paddle.transform.localScale.y; //Y position of paddle plus it's height
+    //    pos.x = paddle.transform.position.x; //x position of paddel
+    //    pos.y = paddle.transform.position.y + paddle.transform.localScale.y; //Y position of paddle plus it's height
 
         transform.position = pos;//set starting position of the ball 
     }//end SetStartingPos()
@@ -96,7 +96,7 @@ public class Ball : MonoBehaviour
     void move()
     {
         // AddForce to Rigidbody using the initalForce value
-        Vector3 AddForce = Rigidbody(initalForce);
+       // Vector3 AddForce = Rigidbody(initalForce);
     }
 
     void OnCollisionEnter()
