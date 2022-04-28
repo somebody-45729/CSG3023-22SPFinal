@@ -18,8 +18,10 @@ public class BrickSpawner : MonoBehaviour
    
     public GameObject brickPrefab; 
     public float paddingBetweenBricks = 0.25f; 
-    private Vector2 brickPadding = new Vector2(0,0);  
+    private Vector2 brickPadding = new Vector2(0,0);
 
+    // Initiate the actual object brickGo
+    public GameObject brickGo;
 
     // Start is called before the first frame update
     void Start()
@@ -30,14 +32,17 @@ public class BrickSpawner : MonoBehaviour
        brickPadding.y = brickPrefab.transform.localScale.y + paddingBetweenBricks;
 
 
-        for (int y=0; y < 7; y++)
+        for (int y=0; y < 9; y++) // both for loops were 7s not 9s as wanted
         {
-            for(int x=0; x < 7; x++)
+            for(int x=0; x < 9; x++)
             {
-                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0); 
-              
-                brickGo = Instantiate.brickPrefab; 
-              
+                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0);
+
+                // fixed brickGo as an actual game object
+                brickGo = Instantiate(brickPrefab);
+                
+                // Instantiate with () not the Instantiate.brickPrefab
+
                 brickGo.transform.parent = transform; 
                 brickGo.transform.localPosition = pos; 
 
