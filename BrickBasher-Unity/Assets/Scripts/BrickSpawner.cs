@@ -32,9 +32,9 @@ public class BrickSpawner : MonoBehaviour
        brickPadding.y = brickPrefab.transform.localScale.y + paddingBetweenBricks;
 
 
-        for (int y=0; y < 9; y++) // both for loops were 7s not 9s as wanted
+        for (int y=0; y < 7; y++) // both for loops were 7s not 9s as wanted
         {
-            for(int x=0; x < 9; x++)
+            for(int x=0; x < 7; x++)
             {
                 Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0);
 
@@ -46,8 +46,8 @@ public class BrickSpawner : MonoBehaviour
                 brickGo.transform.parent = transform; 
                 brickGo.transform.localPosition = pos; 
 
-            }//end for(int x=0; x < 9; x++)
-        }//end for (int y=0; y < 9; y++)
+            }//end for(int x=0; x < 7; x++)
+        }//end for (int y=0; y < 7; y++)
     }
 
 }
