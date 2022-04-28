@@ -101,12 +101,23 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter()
     {
-
+       if (tag == "Brick")
+        {
+            score += 100;
+            // object.destory();
+        }
     }
 
     void OnTriggerEnter()
     {
-
+        if (tag == "OutBounds")
+        {
+            ballLives--;
+            if (ballLives < 0)
+            {
+                //Invoke(SetStaringPosition, 2); not like this
+            }
+        }
     }
 
 }
